@@ -16,7 +16,7 @@ This project demonstrates how to fetch and display data from a JSON file using A
 
 ##1. **Clone the Repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/3b3zeem/JSON-Data-Fetching-Angular
    cd <repository-folder>
    ```
 
