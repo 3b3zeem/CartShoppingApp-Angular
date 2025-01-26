@@ -14,16 +14,19 @@ This project demonstrates how to fetch and display data from a JSON file using A
 - **ProductListComponent**: The parent component that fetches and manages the product data.
 - **ProductCardComponent**: Displays individual product details.
 
-##1. **Clone the Repository**:
+
+## Clone the Repository:
    ```bash
    git clone https://github.com/3b3zeem/JSON-Data-Fetching-Angular
    cd <repository-folder>
    ```
 
-##2. **Install Dependencies**:
+
+## Install Dependencies:
    ```bash
    npm install
    ```
+
 
 ## Development server
 
@@ -34,6 +37,7 @@ To start a local development server, run:
    ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
 
 ## Code scaffolding
 
@@ -58,6 +62,7 @@ ng build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
 
 ## Running unit tests
 
