@@ -1,0 +1,17 @@
+.actions {
+    display: flex;
+    gap: 15px;
+}
+
+.actions button {
+    padding: 5px 13px;
+    border: none;
+    background-color: rgb(11, 169, 226);
+    color: #fff;
+    border-radius: 3px;
+    transition: .3s all ease-in-out;
+}
+
+.actions button:hover {
+    opacity: .8;
+}
