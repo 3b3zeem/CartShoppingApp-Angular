@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Product } from './../types/products';
 import { NgClass } from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -12,4 +13,10 @@ import { CommonModule } from '@angular/common';
 
 export class ProductCardComponent {
   @Input() product: Product | undefined;
+
+  constructor(private router: Router) {}
+
+  navigateToProductDetail(id: number) {
+    this.router.navigate(['/recipe-details', id]);
+  }
 }

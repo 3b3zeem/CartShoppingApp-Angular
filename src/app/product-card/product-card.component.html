@@ -1,6 +1,11 @@
 <div class="product-card" *ngIf="product">
   <div class="product-image">
     <img [src]="product.thumbnail" alt="{{ product.title }}" />
+    <i class="fa-solid fa-cart-plus icon"></i>
+    <i
+      class="fa-regular fa-eye icon"
+      (click)="navigateToProductDetail(product.id)"
+    ></i>
     <p
       class="product-stock"
       [ngClass]="{
@@ -12,10 +17,10 @@
     </p>
   </div>
   <div class="product-details">
-    <div style="display: flex; justify-content: space-between;">
+    <div style="display: flex; justify-content: space-between">
       <h3 class="product-title">{{ product.title }}</h3>
       <p class="product-price">
-        {{ product.price * 50 | currency:'EGP ' }}
+        {{ product.price * 50 | currency : "EGP " }}
       </p>
     </div>
     <p class="product-description">{{ product.description }}</p>
@@ -24,7 +29,15 @@
       <span [ngClass]="{ filled: star <= product.rating }">&#9733;</span>
       }
     </div>
-    
-    <button class="add-to-cart-btn">Add to Cart</button>
+
+    <!-- <div class="actions">
+      <button class="add-to-cart-btn">Add to Cart</button>
+      <button
+        class="add-to-cart-btn"
+        (click)="navigateToProductDetail(product.id)"
+      >
+        View
+      </button>
+    </div> -->
   </div>
 </div>

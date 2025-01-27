@@ -1,13 +1,30 @@
-<h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif">
- 
-</h1>
+<h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif"></h1>
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand"> {{ title }}</a>
+    <a
+      class="navbar-brand"
+      routerLink="/"
+      routerLinkActive="active-Link"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      {{ title }}</a
+    >
     <div class="actions">
-      <button>Register</button>
-      <button>Login</button>
-      <button>Card</button>
+      <a
+        class="navbar-brand"
+        routerLink="/register"
+        routerLinkActive="active-Link"
+        >Register</a
+      >
+      <a class="navbar-brand" routerLink="/login" routerLinkActive="active-Link"
+        >Login</a
+      >
+      <i
+        class="fa-solid fa-cart-plus navbar-brand"
+        style="cursor: pointer"
+        routerLink="/cart"
+        routerLinkActive="active-Link"
+      ></i>
     </div>
   </div>
 </nav>
