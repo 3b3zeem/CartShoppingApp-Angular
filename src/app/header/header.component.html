@@ -7,18 +7,19 @@
       routerLinkActive="active-Link"
       [routerLinkActiveOptions]="{ exact: true }"
     >
-      {{ title }}</a
-    >
+      {{ title }}
+    </a>
     <div class="actions">
-      <a
-        class="navbar-brand"
-        routerLink="/register"
-        routerLinkActive="active-Link"
-        >Register</a
-      >
-      <a class="navbar-brand" routerLink="/login" routerLinkActive="active-Link"
-        >Login</a
-      >
+      <ng-container *ngIf="!isLoggedIn">
+        <a class="navbar-brand" routerLink="/register" routerLinkActive="active-Link">Register</a>
+        <a class="navbar-brand" routerLink="/login" routerLinkActive="active-Link">Login</a>
+      </ng-container>
+
+      <ng-container *ngIf="isLoggedIn">
+        <span>Hello, {{ username }}</span>
+        <button class="btn btn-warning" (click)="logout()">Logout</button>
+      </ng-container>
+      
       <i
         class="fa-solid fa-cart-plus navbar-brand"
         style="cursor: pointer"

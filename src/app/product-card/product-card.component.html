@@ -1,7 +1,7 @@
 <div class="product-card" *ngIf="product">
   <div class="product-image">
     <img [src]="product.thumbnail" alt="{{ product.title }}" />
-    <i class="fa-solid fa-cart-plus icon"></i>
+    <i (click)="addToCart(product)" class="fa-solid fa-cart-plus icon"></i>
     <i
       class="fa-regular fa-eye icon"
       (click)="navigateToProductDetail(product.id)"
@@ -29,15 +29,5 @@
       <span [ngClass]="{ filled: star <= product.rating }">&#9733;</span>
       }
     </div>
-
-    <!-- <div class="actions">
-      <button class="add-to-cart-btn">Add to Cart</button>
-      <button
-        class="add-to-cart-btn"
-        (click)="navigateToProductDetail(product.id)"
-      >
-        View
-      </button>
-    </div> -->
   </div>
 </div>

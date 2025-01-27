@@ -133,7 +133,6 @@ button {
   justify-content: center;
   padding: 0;
   background: #347d6b;
-  color: #fff;
   text-transform: uppercase;
   font-family: "Muli-SemiBold";
   font-size: 15px;
@@ -142,9 +141,10 @@ button {
   position: relative;
   overflow: hidden;
 }
-button span {
+button a {
   position: relative;
   z-index: 2;
+  color: #fff;
 }
 button:before,
 button:after {

@@ -1,9 +1,11 @@
 import { CanActivateFn } from '@angular/router';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  if(localStorage.getItem("token")) {
+  const token = localStorage.getItem('authToken');
+  if (token) {
     return true;
+  } else {
+    alert('You must log in to add products to the cart!');
+    return false;
   }
-  alert("Token is required")
-  return false;
 };

@@ -19,4 +19,30 @@ export class ProductCardComponent {
   navigateToProductDetail(id: number) {
     this.router.navigate(['/recipe-details', id]);
   }
+
+  addToCart(product: Product): void {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      alert('Please log in to add products to the cart.');
+      return;
+    }
+
+    if (product.stock === 0) {
+      alert('Sorry, this product is out of stock.');
+      return;
+    }
+
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    const productIndex = cart.findIndex((item: any) => item.id === product.id);
+    if (productIndex === -1) {
+      cart.push({ ...product, quantity: 1 });
+      alert(`Product "${product.title}" has been added to the cart.`);
+    } else {
+      cart[productIndex].quantity += 1;
+      alert(`Product already added to the cart.`);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
 }

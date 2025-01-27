@@ -1,22 +1,50 @@
 <div class="wrapper">
   <div class="inner">
-    <form action="">
+    <form (ngSubmit)="registerUser()">
       <h3>New Account?</h3>
       <div class="form-holder">
         <span class="lnr lnr-user"></span>
-        <input type="text" class="form-control" placeholder="Username" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          [(ngModel)]="userData.username"
+          name="username"
+          required
+        />
       </div>
       <div class="form-holder">
         <span class="lnr lnr-phone-handset"></span>
-        <input type="text" class="form-control" placeholder="Phone Number" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Phone Number"
+          [(ngModel)]="userData.phone"
+          name="phone"
+          required
+        />
       </div>
       <div class="form-holder">
         <span class="lnr lnr-envelope"></span>
-        <input type="text" class="form-control" placeholder="Mail" />
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Mail"
+          [(ngModel)]="userData.email"
+          name="email"
+          required
+        />
       </div>
       <div class="form-holder">
         <span class="lnr lnr-lock"></span>
-        <input type="password" class="form-control" placeholder="Password" />
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          [(ngModel)]="userData.password"
+          name="password"
+          required
+        />
       </div>
       <div class="form-holder">
         <span class="lnr lnr-lock"></span>
@@ -24,11 +52,12 @@
           type="password"
           class="form-control"
           placeholder="Confirm Password"
+          [(ngModel)]="userData.confirmPassword"
+          name="confirmPassword"
+          required
         />
       </div>
-      <button>
-        <span>Register</span>
-      </button>
+      <button type="submit">Register</button>
     </form>
   </div>
 </div>

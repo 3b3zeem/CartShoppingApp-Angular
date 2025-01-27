@@ -72,7 +72,7 @@
 
     <div class="action-buttons">
       <button class="buy-now" [disabled]="product.stock === 0">Buy Now</button>
-      <button class="add-to-cart" [disabled]="product.stock === 0">
+      <button (click)="addToCart(product)" class="add-to-cart" [disabled]="product.stock === 0">
         Add to Cart
       </button>
     </div>

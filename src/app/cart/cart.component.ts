@@ -1,11 +1,50 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-cart',
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css'
+  styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
+  cart: any[] = []; 
 
+  ngOnInit(): void {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      this.cart = JSON.parse(savedCart);
+    }
+  }
+
+  getTotalPrice(): number {
+    return this.cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  }
+
+  getShippingCost(): number {
+    return 2.99;
+  }
+
+  getTax(): number {
+    return this.getTotalPrice() * 0.1;
+  }
+
+  getGrandTotal(): number {
+    return this.getTotalPrice() + this.getShippingCost() + this.getTax();
+  }
+
+  removeFromCart(productId: number) {
+    this.cart = this.cart.filter(item => item.id !== productId);
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
+
+  
+  updateQuantity(productId: number, newQuantity: number): void {
+    const productIndex = this.cart.findIndex(item => item.id === productId);
+    if (productIndex !== -1 && newQuantity >= 0) {
+      this.cart[productIndex].quantity = newQuantity;
+      localStorage.setItem('cart', JSON.stringify(this.cart));
+    }
+  }
 }
+

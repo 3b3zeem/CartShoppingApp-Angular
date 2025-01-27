@@ -11,4 +11,23 @@ import { RouterLink, RouterLinkActive} from '@angular/router';
 
 export class HeaderComponent {
   title = 'Products';
+
+  isLoggedIn: boolean = false;
+  username: string = '';
+
+  ngOnInit() {
+    const storedUser = localStorage.getItem('userData');
+    if (storedUser) {
+      const userData = JSON.parse(storedUser);
+      this.isLoggedIn = true;
+      this.username = userData.username;
+    }
+  }
+
+  logout() {
+    localStorage.removeItem('userData');
+    localStorage.removeItem('authToken');
+    this.isLoggedIn = false;
+    this.username = '';
+  }
 }
