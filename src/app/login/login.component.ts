@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,7 +17,9 @@ export class LoginComponent {
 
   constructor(private router: Router) {}
 
-  loginUser() {
+  loginUser(form: any) {
+    console.log(form);
+    console.log(form.value);
     const storedUserData = localStorage.getItem('userData');
     if (storedUserData) {
       const userData = JSON.parse(storedUserData);

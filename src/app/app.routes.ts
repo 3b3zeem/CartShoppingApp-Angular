@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 
 export const routes: Routes = [
   {
@@ -27,6 +28,11 @@ export const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     title: 'login',
+  },
+  {
+    path: 'add-recipe',
+    component: AddRecipeComponent,
+    title: 'Add-Recipe',
   },
   {
     path: 'cart',

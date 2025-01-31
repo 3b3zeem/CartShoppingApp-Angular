@@ -1,5 +1,4 @@
-<h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif"></h1>
-<nav class="navbar bg-body-tertiary">
+<nav class="navbar bg-body-tertiary" [ngClass]="{ 'scrolled': isScrolled }">
   <div class="container-fluid">
     <a
       class="navbar-brand"
@@ -8,6 +7,14 @@
       [routerLinkActiveOptions]="{ exact: true }"
     >
       {{ title }}
+    </a>
+    <a
+      class="navbar-brand"
+      routerLink="/add-recipe"
+      routerLinkActive="active-Link"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Add Recipe
     </a>
     <div class="actions">
       <ng-container *ngIf="!isLoggedIn">
