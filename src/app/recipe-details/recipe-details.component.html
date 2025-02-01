@@ -31,11 +31,11 @@
 
     <div class="price-section">
       <div class="original-price">
-        {{ product.price.toFixed(2) | currency : "EGP " }}
+        {{ product.price * 50 | currency : "EGP " }}
       </div>
       <div class="discounted-price">
         {{
-          product.price
+          product.price * 50
             | calculateDiscount : product.discountPercentage
             | currency : "EGP "
         }}
