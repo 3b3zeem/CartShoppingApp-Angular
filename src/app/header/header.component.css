@@ -25,6 +25,24 @@
   display: flex;
   gap: 15px;
   align-items: center;
+  margin-right: 20px;
+}
+
+.actions .cart {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.actions .cart h5 {
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-size: 15px;
+  background-color: #347d6b;
+  color: #fff;
 }
 
 .active-Link {

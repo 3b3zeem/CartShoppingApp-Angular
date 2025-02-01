@@ -3,18 +3,18 @@ import { Product } from './../types/products';
 import { NgClass } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product-card',
   imports: [NgClass, CommonModule],
   templateUrl: './product-card.component.html',
-  styleUrl: './product-card.component.css'
+  styleUrl: './product-card.component.css',
 })
-
 export class ProductCardComponent {
-  @Input() product: Product | undefined;
+  @Input() product: any;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cartService: CartService) {}
 
   navigateToProductDetail(id: number) {
     this.router.navigate(['/recipe-details', id]);
@@ -32,17 +32,6 @@ export class ProductCardComponent {
       return;
     }
 
-    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-
-    const productIndex = cart.findIndex((item: any) => item.id === product.id);
-    if (productIndex === -1) {
-      cart.push({ ...product, quantity: 1 });
-      alert(`Product "${product.title}" has been added to the cart.`);
-    } else {
-      cart[productIndex].quantity += 1;
-      alert(`Product already added to the cart.`);
-    }
-
-    localStorage.setItem('cart', JSON.stringify(cart));
+    this.cartService.addToCart(product);
   }
 }

@@ -72,12 +72,20 @@
 
     <div class="action-buttons">
       <button class="buy-now" [disabled]="product.stock === 0">Buy Now</button>
-      <button (click)="addToCart(product)" class="add-to-cart" [disabled]="product.stock === 0">
+      <button
+        (click)="addToCart(product)"
+        class="add-to-cart"
+        [disabled]="product.stock === 0"
+      >
         Add to Cart
       </button>
     </div>
   </div>
 </div>
 } @else {
-  <app-not-found [message]="'Product not found with ID: ' + id"></app-not-found>
+<app-not-found
+  [message]="
+    '404 - Product not found with ID: ' + activatedRoute.snapshot.params['id']
+  "
+></app-not-found>
 }

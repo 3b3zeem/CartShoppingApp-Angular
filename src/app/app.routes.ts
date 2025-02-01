@@ -30,11 +30,6 @@ export const routes: Routes = [
     title: 'login',
   },
   {
-    path: 'add-recipe',
-    component: AddRecipeComponent,
-    title: 'Add-Recipe',
-  },
-  {
     path: 'cart',
     component: CartComponent,
     title: 'cart',

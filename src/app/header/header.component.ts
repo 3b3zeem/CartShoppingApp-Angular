@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +11,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
   title = 'Products';
-
   isScrolled = false;
+  isLoggedIn: boolean = false;
+  username: string = '';
+  cartItemCount: number = 0;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -22,8 +25,7 @@ export class HeaderComponent {
     }
   }
 
-  isLoggedIn: boolean = false;
-  username: string = '';
+  constructor(private cartService: CartService) {}
 
   ngOnInit() {
     const storedUser = localStorage.getItem('userData');
@@ -32,6 +34,10 @@ export class HeaderComponent {
       this.isLoggedIn = true;
       this.username = userData.username;
     }
+
+    this.cartService.counter.subscribe(count => {
+      this.cartItemCount = count;
+    })
   }
 
   logout() {

@@ -3,3 +3,7 @@
     <app-product-card [product]="product"></app-product-card>
   }
 </div>
+
+@if (products.length < totalProducts) {
+  <button (click)="loadMore()"> Load More </button>
+}
